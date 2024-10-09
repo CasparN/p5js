@@ -1,6 +1,9 @@
 (function() {
   let angle = 0;
   let colors = [];
+  let numCircles = 10;
+  let rotationSpeed = 0.01;
+  let numCirclesSlider, rotationSpeedSlider;
 
   function setup() {
     let canvasWidth = windowWidth * 0.7;
@@ -11,20 +14,31 @@
     for (let i = 0; i < 10; i++) {
       colors.push([random(255), random(255), random(255)]);
     }
+
+    // Create sliders
+    numCirclesSlider = createSlider(1, 20, numCircles);
+    numCirclesSlider.position(10, 10);
+    rotationSpeedSlider = createSlider(0.001, 0.1, rotationSpeed, 0.001);
+    rotationSpeedSlider.position(10, 40);
   }
 
   function draw() {
     background(0);
     translate(width / 2, height / 2);
-    for (let i = 0; i < 10; i++) {
+
+    // Update parameters from sliders
+    numCircles = numCirclesSlider.value();
+    rotationSpeed = rotationSpeedSlider.value();
+
+    for (let i = 0; i < numCircles; i++) {
       push();
-      rotate(angle + i * TWO_PI / 10);
+      rotate(angle + i * TWO_PI / numCircles);
       translate(100, 0);
-      fill(colors[i]);
+      fill(colors[i % colors.length]);
       ellipse(0, 0, 50, 50);
       pop();
     }
-    angle += 0.01;
+    angle += rotationSpeed;
   }
 
   window.setup = setup;
