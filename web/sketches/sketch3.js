@@ -22,13 +22,15 @@
     // Update parameters from HTML sliders
     numCircles = parseInt(document.getElementById('numCircles').value);
     rotationSpeed = parseFloat(document.getElementById('rotationSpeed').value);
+    circleSize = parseFloat(document.getElementById('circleSize').value);
+    diameter = parseFloat(document.getElementById('diameter').value);
 
     for (let i = 0; i < numCircles; i++) {
       push();
       rotate(angle + i * TWO_PI / numCircles);
-      translate(100, 0);
+      translate(diameter, 0);
       fill(colors[i % colors.length]);
-      ellipse(0, 0, 50, 50);
+      ellipse(0, 0, circleSize, circleSize);
       pop();
     }
     angle += rotationSpeed;

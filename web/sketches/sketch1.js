@@ -12,7 +12,7 @@
   }
 
   function draw() {
-    background(0, 0, 0, 1);
+    background(0, 0, 0, 10);
     numShapes = parseInt(document.getElementById('numShapes').value);
     shapeSize = parseInt(document.getElementById('shapeSize').value);
     drawRandomShapes();

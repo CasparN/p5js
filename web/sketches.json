@@ -11,8 +11,12 @@
     "name": "Sketch 2",
     "file": "sketch2.js",
     "sliders": [
-      { "id": "numStars", "label": "Number of Stars", "min": 1, "max": 50, "value": 25 },
-      { "id": "starSize", "label": "Star Size", "min": 5, "max": 30, "value": 15 }
+      { "id": "numStars", "label": "Number of Stars", "min": 1, "max": 250, "value": 25 },
+      { "id": "starSize", "label": "Star Size", "min": 5, "max": 100, "value": 15 },
+      { "id": "starSpeed", "label": "Star Speed", "min": 0.01, "max": 10, "step": 0.003, "value": 0.5 }
+    ],
+    "checkboxes": [
+      { "id": "sideBehaviour", "label": "Side Behaviour", "value": true }
     ]
   },
   {
@@ -20,7 +24,9 @@
     "file": "sketch3.js",
     "sliders": [
       { "id": "numCircles", "label": "Number of Circles", "min": 1, "max": 20, "value": 10 },
-      { "id": "rotationSpeed", "label": "Rotation Speed", "min": 0.001, "max": 0.1, "step": 0.001, "value": 0.01 }
+      { "id": "rotationSpeed", "label": "Rotation Speed", "min": 0.001, "max": 0.5, "step": 0.003, "value": 0.300 },
+      { "id": "circleSize", "label": "Circle Size", "min": 10, "max": 100, "value": 50 },
+      { "id": "diameter", "label": "Diameter Rotation", "min": 10, "max": 150, "value": 50 }
     ]
   }
 ]

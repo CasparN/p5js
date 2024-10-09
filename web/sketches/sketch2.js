@@ -1,6 +1,9 @@
 (function() {
   let numStars = 25;
   let starSize = 15;
+  let starSpeed = 1;
+  let stars = [];
+  let sideBehaviour = false;
 
   function setup() {
     let canvasWidth = windowWidth * 0.7;
@@ -8,42 +11,75 @@
     let canvas = createCanvas(canvasWidth, canvasHeight);
     canvas.parent('canvas-container');
     noStroke();
+    background(0, 0, 0);
+
+    // Create stars for stars array
+    for (let i = 0; i < numStars; i++) {
+      let angle = random(TWO_PI);
+      stars.push({
+        x: random(width),
+        y: random(height),
+        dx: cos(angle),
+        dy: sin(angle),
+        size: random(10, starSize),
+        speed: random(0.5, starSpeed)
+      });
+    }
   }
 
   function draw() {
-    background(0);
+    background(0, 0, 0, 10);
     numStars = parseInt(document.getElementById('numStars').value);
     starSize = parseInt(document.getElementById('starSize').value);
-    drawRandomStars();
-  }
+    starSpeed = parseFloat(document.getElementById('starSpeed').value);
+    sideBehaviour = document.getElementById('sideBehaviour').checked;
 
-  function drawRandomStars() {
+    // Adjust the number of stars
+    if (numStars > stars.length) {
+      for (let i = stars.length; i < numStars; i++) {
+        let angle = random(TWO_PI);
+        stars.push({
+          x: random(width),
+          y: random(height),
+          dx: cos(angle),
+          dy: sin(angle),
+          size: random(10, starSize),
+          speed: random(0.5, starSpeed)
+        });
+      }
+    } else if (numStars < stars.length) {
+      stars.splice(numStars, stars.length - numStars);
+    }
+
+    // Update stars array and change their position using direction vector and starSpeed
     for (let i = 0; i < numStars; i++) {
-      let x = random(width);
-      let y = random(height);
-      let size = random(5, starSize);
-      let r = random(255);
-      let g = random(255);
-      let b = random(255);
+      stars[i].x += stars[i].dx * starSpeed;
+      stars[i].y += stars[i].dy * starSpeed;
 
-      fill(r, g, b, 150);
-      star(x, y, size, size * 2, 5);
-    }
-  }
+      if (sideBehaviour) {
+        // if star goes off screen, flip its direction vector
+        if (stars[i].x < 0 || stars[i].x > width) {
+          stars[i].dx *= -1;
+        }
+        if (stars[i].y < 0 || stars[i].y > height) {
+          stars[i].dy *= -1;
+        }
+      } else {
+        // If star goes off screen, reset its position
+        if (stars[i].x < 0 || stars[i].x > width || stars[i].y < 0 || stars[i].y > height) {
+          stars[i].x = random(width);
+          stars[i].y = random(height);
+          let angle = random(TWO_PI);
+          stars[i].dx = cos(angle);
+          stars[i].dy = sin(angle);
+          stars[i].speed = random(0.5, starSpeed);
+          stars[i].size = random(10, starSize);
+        }
+      }
 
-  function star(x, y, radius1, radius2, npoints) {
-    let angle = TWO_PI / npoints;
-    let halfAngle = angle / 2.0;
-    beginShape();
-    for (let a = 0; a < TWO_PI; a += angle) {
-      let sx = x + cos(a) * radius2;
-      let sy = y + sin(a) * radius2;
-      vertex(sx, sy);
-      sx = x + cos(a + halfAngle) * radius1;
-      sy = y + sin(a + halfAngle) * radius1;
-      vertex(sx, sy);
+      fill(255, 255, 255, 150);
+      ellipse(stars[i].x, stars[i].y, stars[i].size, stars[i].size);
     }
-    endShape(CLOSE);
   }
 
   window.setup = setup;
