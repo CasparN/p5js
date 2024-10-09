@@ -1,4 +1,7 @@
 (function() {
+  let numStars = 25;
+  let starSize = 15;
+
   function setup() {
     let canvasWidth = windowWidth * 0.7;
     let canvasHeight = canvasWidth * (3 / 4);
@@ -9,19 +12,23 @@
 
   function draw() {
     background(0);
+    numStars = parseInt(document.getElementById('numStars').value);
+    starSize = parseInt(document.getElementById('starSize').value);
     drawRandomStars();
   }
 
   function drawRandomStars() {
-    let x = random(width);
-    let y = random(height);
-    let size = random(5, 15);
-    let r = random(255);
-    let g = random(255);
-    let b = random(255);
+    for (let i = 0; i < numStars; i++) {
+      let x = random(width);
+      let y = random(height);
+      let size = random(5, starSize);
+      let r = random(255);
+      let g = random(255);
+      let b = random(255);
 
-    fill(r, g, b, 150);
-    star(x, y, size, size * 2, 5);
+      fill(r, g, b, 150);
+      star(x, y, size, size * 2, 5);
+    }
   }
 
   function star(x, y, radius1, radius2, npoints) {

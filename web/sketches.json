@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Sketch 1",
+    "file": "sketch1.js",
+    "sliders": [
+      { "id": "numShapes", "label": "Number of Shapes", "min": 1, "max": 20, "value": 10 },
+      { "id": "shapeSize", "label": "Shape Size", "min": 10, "max": 100, "value": 50 }
+    ]
+  },
+  {
+    "name": "Sketch 2",
+    "file": "sketch2.js",
+    "sliders": [
+      { "id": "numStars", "label": "Number of Stars", "min": 1, "max": 50, "value": 25 },
+      { "id": "starSize", "label": "Star Size", "min": 5, "max": 30, "value": 15 }
+    ]
+  },
+  {
+    "name": "Sketch 3",
+    "file": "sketch3.js",
+    "sliders": [
+      { "id": "numCircles", "label": "Number of Circles", "min": 1, "max": 20, "value": 10 },
+      { "id": "rotationSpeed", "label": "Rotation Speed", "min": 0.001, "max": 0.1, "step": 0.001, "value": 0.01 }
+    ]
+  }
+]

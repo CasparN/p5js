@@ -38,3 +38,12 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+#sliders {
+  margin-top: 20px;
+}
+
+#sliders label, #sliders input {
+  display: block;
+  margin-bottom: 10px;
+}
