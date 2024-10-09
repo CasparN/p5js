@@ -1,8 +1,40 @@
-html, body {
+body {
+  display: flex;
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-canvas {
+#sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+#main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+#canvas-container {
+  width: 70vw;
+  height: calc(70vw * 3 / 4);
+}
+
+button {
   display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
