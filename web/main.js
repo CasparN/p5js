@@ -4,12 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('sketches.json')
     .then(response => response.json())
     .then(sketches => {
-      const buttonsContainer = document.getElementById('buttons');
+      const sketchSelector = document.getElementById('sketch-selector');
       sketches.forEach((sketch, index) => {
-        const button = document.createElement('button');
-        button.textContent = sketch.name;
-        button.onclick = () => loadSketch(sketch);
-        buttonsContainer.appendChild(button);
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = sketch.name;
+        sketchSelector.appendChild(option);
+      });
+
+      // Load the first sketch by default
+      loadSketch(sketches[0]);
+
+      // Add event listener for dropdown change
+      sketchSelector.addEventListener('change', (event) => {
+        const selectedSketch = sketches[event.target.value];
+        loadSketch(selectedSketch);
       });
     });
 });

@@ -28,5 +28,41 @@
       { "id": "circleSize", "label": "Circle Size", "min": 10, "max": 100, "value": 50 },
       { "id": "diameter", "label": "Diameter Rotation", "min": 10, "max": 150, "value": 50 }
     ]
+  },
+  {
+  "name": "Sketch 4",
+  "file": "sketch4.js",
+  "sliders": [
+    { "id": "numBalls", "label": "Number of Balls", "min": 1, "max": 50, "value": 10 },
+    { "id": "ballSpeed", "label": "Ball Speed", "min": 1, "max": 10, "value": 5 }
+  ],
+  "checkboxes": [
+    { "id": "trail", "label": "Leave Trail", "value": false }
+  ]
+  },
+  {
+    "name": "Sketch 5",
+    "file": "sketch5.js",
+    "sliders": [
+      { "id": "frequency", "label": "Frequency", "min": 1, "max": 10, "value": 5 },
+      { "id": "amplitude", "label": "Amplitude", "min": 10, "max": 100, "value": 50 }
+    ],
+    "checkboxes": [
+      { "id": "fillWave", "label": "Fill Wave", "value": true }
+    ]
+  },
+  {
+    "name": "Sketch 6",
+    "file": "sketch6.js",
+    "sliders": [
+      { "id": "particleCount", "label": "Particle Count", "min": 50, "max": 500, "value": 200 },
+      { "id": "particleSize", "label": "Particle Size", "min": 1, "max": 10, "value": 5 },
+      { "id": "particleSpeed", "label": "Particle Speed", "min": 1, "max": 10, "value": 5 },
+      { "id": "smokeAmount", "label": "Smoke Amount", "min": 0, "max": 100, "value": 50 }
+    ],
+    "checkboxes": [
+      { "id": "wind", "label": "Wind Effect", "value": false },
+      { "id": "colorVariation", "label": "Color Variation", "value": true }
+    ]
   }
 ]

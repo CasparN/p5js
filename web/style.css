@@ -5,7 +5,7 @@ body {
 }
 
 #sidebar {
-  width: 200px;
+  width: 180px;
   background-color: #f4f4f4;
   padding: 10px;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
@@ -24,15 +24,21 @@ body {
   height: calc(70vw * 3 / 4);
 }
 
-button {
+#sketch-selector {
   display: block;
-  width: 100%;
-  margin-bottom: 10px;
+  width: 80%;
+  margin-bottom: 20px;
   padding: 10px;
   background-color: #007BFF;
   color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+}
+
+#sketch-selector:hover {
+  background-color: #0056b3;
 }
 
 button:hover {
