@@ -61,7 +61,7 @@
       { "id": "smokeAmount", "label": "Smoke Amount", "min": 0, "max": 100, "value": 50 }
     ],
     "checkboxes": [
-      { "id": "wind", "label": "Wind Effect", "value": false },
+      { "id": "wind", "label": "Wind Effect", "value": true },
       { "id": "colorVariation", "label": "Color Variation", "value": true }
     ]
   }

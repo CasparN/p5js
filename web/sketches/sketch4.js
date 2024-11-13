@@ -59,8 +59,23 @@
         this.x += this.dx * this.speed;
         this.y += this.dy * this.speed;
   
-        if (this.x < 0 || this.x > width) this.dx *= -1;
-        if (this.y < 0 || this.y > height) this.dy *= -1;
+        if (this.x < 0 || (this.x + this.size / 2) > width) this.dx *= -1;
+        if (this.y < 0 || (this.y + this.size / 2) > height) this.dy *= -1;
+
+        // check for collision with other balls
+        balls.forEach(ball => {
+          if (ball !== this) {
+            let d = dist(this.x, this.y, ball.x, ball.y);
+            if (d < this.size / 2 + ball.size / 2) {
+              let tempDx = this.dx;
+              let tempDy = this.dy;
+              this.dx = ball.dx;
+              this.dy = ball.dy;
+              ball.dx = tempDx;
+              ball.dy = tempDy;
+            }
+          }
+        });
       }
   
       display() {
