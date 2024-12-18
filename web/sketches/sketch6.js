@@ -8,9 +8,9 @@
     let colorVariation = true;
     let img;
 
-    function preload() {
-        img = loadImage('../img/sketch6.png');
-    }
+    // function preload() {
+    //     img = loadImage('../img/sketch6.png');
+    // }
 
     function setup() {
       let canvasWidth = windowWidth * 0.7;
