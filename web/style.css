@@ -53,3 +53,30 @@ button:hover {
   display: block;
   margin-bottom: 10px;
 }
+
+/* Style for reset button */
+#reset-button {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#reset-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Make checkboxes display vertically */
+#checkboxes label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#checkboxes input[type="checkbox"] {
+  margin-right: 5px;
+  vertical-align: middle;
+}
